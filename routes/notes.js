@@ -24,3 +24,15 @@ router.post('/', (req, res, next) => {
     const note = Note.create(title, content)
     res.json(note)
 })
+
+router.put('/:id', (req, res, next) =>{
+    const id = Number(req.params.id)
+    const {title, content} = req.body
+
+    try {
+        const note = Note.update(id, title, content)
+        res.json(note)
+    } catch (e) {
+        next(e)
+    }
+})
