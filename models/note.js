@@ -50,3 +50,13 @@ exports.update = (id, title, content) => {
     notes[index] = note
     return note
 }
+
+exports.delete = (id) => {
+    if(!notes.some((note) => note.id === id)) {
+        throw new Error(
+            'Note not found for delete'
+        )
+    }
+    notes = notes.filter(note => note.id !== id)
+    return
+}
