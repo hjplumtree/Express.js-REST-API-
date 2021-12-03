@@ -22,3 +22,15 @@ exports.get = (id) => {
     }
     return note
 }
+
+exports.create = (title, content) => {
+    const {id: lastId} = notes[notes.length - 1]
+
+    const newNote = {
+        id: lastId + 1,
+        title,
+        content
+    }
+    notes.push(newNote)
+    return newNote
+}
