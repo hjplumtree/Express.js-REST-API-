@@ -36,3 +36,14 @@ router.put('/:id', (req, res, next) =>{
         next(e)
     }
 })
+
+router.delete('/:id', (req, res, next) => {
+    const id = Number(req.params.id)
+
+    try {
+        Note.delete(id)
+        res.json({result: 'success'})
+    } catch (e) {
+        next(e)
+    }
+})
