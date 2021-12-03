@@ -18,3 +18,9 @@ router.get('/:id', (req, res, next) => {
         next(e)
     }
 })
+
+router.post('/', (req, res, next) => {
+    const {title, content} = req.body
+    const note = Note.create(title, content)
+    res.json(note)
+})
