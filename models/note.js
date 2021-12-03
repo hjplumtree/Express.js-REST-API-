@@ -34,3 +34,19 @@ exports.create = (title, content) => {
     notes.push(newNote)
     return newNote
 }
+
+exports.update = (id, title, content) => {
+    const index = notes.findIndex(
+        (note) => note.id === id
+    )
+
+    if (index < 0) {
+        throw new Error('Note not found for update')
+    }
+
+    const note = notes[index]
+    note.title = title
+    note.content = content
+    notes[index] = note
+    return note
+}
