@@ -5,3 +5,10 @@
         content: 'My first note is here.'
     }
 ]
+
+exports.list = () => {
+    return notes.map(({ id, title }) => ({
+        id,
+        title
+    }))
+}
